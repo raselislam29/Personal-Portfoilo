@@ -180,11 +180,12 @@
 
                 <!-- Enhanced Weather App Script -->
                 <script>
-                    const apiKey = 'https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid={API key}'; // Replace with your actual API key
+                    const apiKey = 'd98a0b3f9c8a8e54972a1767f4d03eec'; // Your actual OpenWeatherMap API key
 
                     // Function to fetch weather data by coordinates
                     function getWeather(lat, lon) {
                         const exclude = 'minutely,alerts';
+                        // Corrected fetch URL
                         fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=${exclude}&appid=${apiKey}&units=metric`)
                             .then(response => response.json())
                             .then(data => {
