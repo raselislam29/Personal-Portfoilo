@@ -5,242 +5,255 @@
     Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-    <head>
-        <title>Welcome To My Website</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-        <style>
-            /* Styling for the weather widget */
-            #weather {
-                background-color: #fff;
-                border-radius: 10px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                padding: 20px;
-                text-align: center;
-                width: 300px;
-                margin: 20px auto;
+<head>
+    <title>Welcome To My Website</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        /* Enhanced styling for the weather widget */
+        #weather {
+            text-align: center;
+            background: linear-gradient(to bottom right, #007bff, #00c6ff);
+            color: #fff;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            width: 600px;
+            margin: 30px auto;
+        }
+        .icon {
+            width: 80px;
+            height: 80px;
+        }
+        #city-input, #city-select {
+            padding: 10px;
+            width: calc(100% - 22px);
+            margin-top: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        #change-location {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #ff7300;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #change-location:hover {
+            background-color: #e05b00;
+        }
+        .forecast-item {
+            display: inline-block;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+            .forecast-item {
+                width: 80px;
             }
+        }
+    </style>
+</head>
+<body class="is-preload">
 
-            #weather h2 {
-                font-size: 24px;
-                margin-bottom: 10px;
-            }
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
 
-            #weather p {
-                font-size: 18px;
-                margin: 5px 0;
-            }
+        <!-- Intro -->
+        <div id="intro">
+            <h1>This is<br />
+            Rasel Islam</h1>
+            <p> Currently Studying at SUNY Farmingdale. I am passionate about Data and Tech</p>
+            <ul class="actions">
+                <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+            </ul>
+        </div>
 
-            .icon {
-                width: 100px;
-                height: 100px;
-            }
-        </style>
-    </head>
-    <body class="is-preload">
+        <!-- Header -->
+        <header id="header">
+            <a href="https://drive.google.com/file/d/16HPI46x2mdgQieH3WTnJLuYCbxlZ-BUm/view?usp=sharing" class="logo">Resume</a>
+        </header>
 
-        <!-- Wrapper -->
-            <div id="wrapper" class="fade-in">
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li class="active"><a href="index.html">About My Journey</a></li>
+                <li><a href="projects.html">Product</a></li>
+                <li><a href="certificates.html">Certificate</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://linkdin.com/in/raselislam29" class="icon brands fa-linkdin"><span class="label">Linkdin</span></a></li>
+                <li><a href="https://Facebook.com/raselmunshizzz" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="https://instagram.com/__whoare__you" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="https://github.com/raselislam29" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+        </nav>
 
-                <!-- Intro -->
-                    <div id="intro">
-                        <h1>This is<br />
-                        Rasel Islam</h1>
-                        <p> Currently Studying at SUNY Farmingdale. I am passionate about Data and Tech</p>
-                        <ul class="actions">
-                            <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-                        </ul>
-                    </div>
+        <!-- Main -->
+        <div id="main">
 
-                <!-- Header -->
-                    <header id="header">
-                        <a href="https://drive.google.com/file/d/16HPI46x2mdgQieH3WTnJLuYCbxlZ-BUm/view?usp=sharing" class="logo">Resume</a>
-                    </header>
+            <!-- Featured Post -->
+            <article class="post featured">
+                <header class="major">
+                    <span class="date">July 22, 2024</span>
+                    <h2><a href="#">And this is my<br />
+                    Journey</a></h2>
+                    <p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
+                    facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
+                    amet nullam sed etiam veroeros</p>
+                </header>
+                <a href="#" class="image main"><img src="images/1685420602366.jpeg" alt="" /></a>
+                <ul class="actions special">
+                    <li><a href="#" class="button large">Full Story</a></li>
+                </ul>
+            </article>
 
-                <!-- Nav -->
-                    <nav id="nav">
-                        <ul class="links">
-                            <li class="active"><a href="index.html">About My Journey</a></li>
-                            <li><a href="projects.html">Product</a></li>
-                            <li><a href="certificates.html">Certificate</a></li>
-                        </ul>
-                        <ul class="icons">
-                            <li><a href="https://linkdin.com/in/raselislam29" class="icon brands fa-linkdin"><span class="label">Linkdin</span></a></li>
-                            <li><a href="https://Facebook.com/raselmunshizzz" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                            <li><a href="https://instagram.com/__whoare__you" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                            <li><a href="https://github.com/raselislam29" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-                        </ul>
-                    </nav>
+            <!-- Weather Widget -->
+            <div id="weather">
+                <h2>Weather Information</h2>
+                <p>Loading...</p>
+                <select id="city-select">
+                    <option value="">Select a city...</option>
+                    <option value="New York">New York</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="Chicago">Chicago</option>
+                    <option value="Houston">Houston</option>
+                    <option value="Miami">Miami</option>
+                </select>
+                <input type="text" id="city-input" placeholder="Enter city name" />
+                <button id="change-location">Change Location</button>
+            </div>
 
-                <!-- Main -->
-                    <div id="main">
+        </div>
 
-                        <!-- Weather Widget -->
-                        <div id="weather">
-                            <h1>Weather Update</h1>
-                            <div id="weather-info">
-                                <p>Loading...</p>
-                            </div>
-                        </div>
+        <!-- Footer -->
+        <footer id="footer">
+            <!-- Footer content remains unchanged -->
+        </footer>
 
-                        <!-- Featured Post -->
-                            <article class="post featured">
-                                <header class="major">
-                                    <span class="date">July 22, 2024</span>
-                                    <h2><a href="#">And this is my<br />
-                                    Journey</a></h2>
-                                    <p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-                                    facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-                                    amet nullam sed etiam veroeros</p>
-                                </header>
-                                <a href="#" class="image main"><img src="images/1685420602366.jpeg" alt="" /></a>
-                                <ul class="actions special">
-                                    <li><a href="#" class="button large">Full Story</a></li>
-                                </ul>
-                            </article>
+    </div>
 
-                        <!-- Posts -->
-                            <section class="posts">
-                                <article>
-                                    <header>
-                                        <span class="date">April 24, 2017</span>
-                                        <h2><a href="#">Sed magna<br />
-                                        ipsum faucibus</a></h2>
-                                    </header>
-                                    <a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-                                    <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-                                    <ul class="actions special">
-                                        <li><a href="#" class="button">Full Story</a></li>
-                                    </ul>
-                                </article>
-                                <!-- Additional articles here... -->
-                            </section>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
 
-                    </div>
+    <!-- Weather App Script -->
+    <script>
+        const apiKey = '3pgd4ZXAsFPqH8eYGd0rpFa97F0ySGr7'; // Your AccuWeather API key
 
-                <!-- Footer -->
-                    <footer id="footer">
-                        <section>
-                            <form method="post" action="#">
-                                <div class="fields">
-                                    <div class="field">
-                                        <label for="name">Name</label>
-                                        <input type="text" name="name" id="name" />
-                                    </div>
-                                    <div class="field">
-                                        <label for="email">Email</label>
-                                        <input type="text" name="email" id="email" />
-                                    </div>
-                                    <div class="field">
-                                        <label for="message">Message</label>
-                                        <textarea name="message" id="message" rows="3"></textarea>
-                                    </div>
-                                </div>
-                                <ul class="actions">
-                                    <li><input type="submit" value="Send Message" /></li>
-                                </ul>
-                            </form>
-                        </section>
-                        <section class="split contact">
-                            <section class="alt">
-                                <h3>Address</h3>
-                                <p>1234 Somewhere Road #87257<br />
-                                Nashville, TN 00000-0000</p>
-                            </section>
-                            <section>
-                                <h3>Phone</h3>
-                                <p><a href="#">(000) 000-0000</a></p>
-                            </section>
-                            <section>
-                                <h3>Email</h3>
-                                <p><a href="https://mail.google.com/rasel019544">info@untitled.tld</a></p>
-                            </section>
-                            <section>
-                                <h3>Social</h3>
-                                <ul class="icons alt">
-                                    <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-                                    <li><a href="https://facebook.com/raselmunshizzz" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-                                    <li><a href="https://instagram.com/__whoare__you" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-                                    <li><a href="https://github.com/raselislam29" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-                                </ul>
-                            </section>
-                        </section>
-                    </footer>
+        // Function to get the location key for a city
+        function getLocationKey(city) {
+            const url = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${city}`;
 
-                <!-- Scripts -->
-                <script src="assets/js/jquery.min.js"></script>
-                <script src="assets/js/jquery.scrollex.min.js"></script>
-                <script src="assets/js/jquery.scrolly.min.js"></script>
-                <script src="assets/js/browser.min.js"></script>
-                <script src="assets/js/breakpoints.min.js"></script>
-                <script src="assets/js/util.js"></script>
-                <script src="assets/js/main.js"></script>
-
-                <!-- Enhanced Weather App Script -->
-                <script>
-                    const apiKey ='196fc6238050c505fd3d3e593c64ef8f'; // api key
-
-
-                    // Function to fetch weather data by coordinates
-                    function getWeather(lat, lon) {
-                        const exclude = 'minutely,alerts';
-                        // Corrected fetch URL
-                        fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=${exclude}&appid=${apiKey}&units=metric`)
-							.then(response => {
-								if (!response.ok) {
-									throw new Error(`HTTP error! Status: ${response.status}`);
-								}
-								return response.json();
-							})
-							.then(data => {
-								displayWeather(data);
-							})
-							.catch(error => {
-								console.error('Error fetching weather data:', error);
-								document.getElementById('weather-info').innerHTML = `<p>Unable to fetch weather data. ${error.message}</p>`;
-							});
+            return fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
                     }
-
-                    // Function to display weather data
-                    function displayWeather(data) {
-                        const temperature = data.current.temp;
-                        const weatherDescription = data.current.weather[0].description;
-                        const iconCode = data.current.weather[0].icon;
-                        const humidity = data.current.humidity;
-                        const windSpeed = data.current.wind_speed;
-                        const dailyForecast = data.daily.slice(0, 3);
-
-                        // Display current weather
-                        const weatherInfo = `
-                            <h2>Current Weather</h2>
-                            <img class="icon" src="http://openweathermap.org/img/wn/${iconCode}@2x.png" alt="Weather Icon">
-                            <p>Temperature: ${temperature}°C</p>
-                            <p>Weather: ${weatherDescription}</p>
-                            <p>Humidity: ${humidity}%</p>
-                            <p>Wind Speed: ${windSpeed} m/s</p>
-                            <h2>3-Day Forecast</h2>
-                            ${dailyForecast.map(day => `
-                                <p><strong>${new Date(day.dt * 1000).toLocaleDateString()}</strong>: 
-                                ${day.temp.day}°C, ${day.weather[0].description}</p>
-                            `).join('')}
-                        `;
-                        document.getElementById('weather-info').innerHTML = weatherInfo;
-                    }
-
-                    // Get current location and fetch weather
-                    if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(position => {
-                            getWeather(position.coords.latitude, position.coords.longitude);
-                        }, error => {
-                            console.error('Geolocation error:', error);
-                            document.getElementById('weather-info').innerHTML = '<p>Unable to get your location.</p>';
-                        });
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.length > 0) {
+                        return data[0].Key;
                     } else {
-                        console.error('Geolocation not supported by this browser.');
-                        document.getElementById('weather-info').innerHTML = '<p>Geolocation not supported by this browser.</p>';
+                        throw new Error('Location not found');
                     }
-                </script>
-    </body>
+                });
+        }
+
+        // Function to get the current weather and 5-day forecast using the location key
+        function getWeatherData(locationKey) {
+            const currentConditionsUrl = `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${apiKey}&details=true`;
+            const forecastUrl = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${apiKey}&metric=false`;
+
+            return Promise.all([
+                fetch(currentConditionsUrl).then(response => response.json()),
+                fetch(forecastUrl).then(response => response.json())
+            ]);
+        }
+
+        // Function to display the weather data
+        function displayWeather(city) {
+            getLocationKey(city)
+                .then(locationKey => getWeatherData(locationKey))
+                .then(([currentWeather, forecast]) => {
+                    const weatherDiv = document.getElementById('weather');
+                    const temperature = currentWeather[0].Temperature.Imperial.Value;
+                    const feelsLike = currentWeather[0].RealFeelTemperature.Imperial.Value;
+                    const description = currentWeather[0].WeatherText;
+                    const highTemp = forecast.DailyForecasts[0].Temperature.Maximum.Value;
+                    const lowTemp = forecast.DailyForecasts[0].Temperature.Minimum.Value;
+
+                    // Build the current weather display
+                    let weatherContent = `
+                        <h2>Weather in ${city}</h2>
+                        <img class="icon" src="https://developer.accuweather.com/sites/default/files/${currentWeather[0].WeatherIcon.toString().padStart(2, '0')}-s.png" alt="Weather Icon">
+                        <p>Temperature: ${temperature}°F</p>
+                        <p>Feels Like: ${feelsLike}°F</p>
+                        <p>High: ${highTemp}°F | Low: ${lowTemp}°F</p>
+                        <p>Condition: ${description}</p>
+                        <h3>5-Day Forecast</h3>
+                        <div class="forecast-container">
+                    `;
+
+                    // Add the 5-day forecast
+                    forecast.DailyForecasts.forEach(day => {
+                        const date = new Date(day.Date).toLocaleDateString('en-US', { weekday: 'short' });
+                        const dayTemp = day.Temperature.Maximum.Value;
+                        const nightTemp = day.Temperature.Minimum.Value;
+                        weatherContent += `
+                            <div class="forecast-item">
+                                <p>${date}</p>
+                                <p>Day: ${dayTemp}°F</p>
+                                <p>Night: ${nightTemp}°F</p>
+                            </div>
+                        `;
+                    });
+
+                    weatherContent += '</div>';
+
+                    // Update the weather div with the new content
+                    weatherDiv.innerHTML = weatherContent;
+                })
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                    document.getElementById('weather').innerHTML = `<p>Unable to fetch weather data. ${error.message}</p>`;
+                });
+        }
+
+        // Function to initialize the weather app and add event listeners
+        function initializeWeatherApp() {
+            // Set default weather for New York
+            displayWeather('New York');
+
+            // Add event listener for changing location using the button
+            const button = document.getElementById('change-location');
+            button.addEventListener('click', () => {
+                const cityInput = document.getElementById('city-input').value;
+                const citySelect = document.getElementById('city-select').value;
+                const city = cityInput || citySelect;
+                if (city) {
+                    displayWeather(city);
+                }
+            });
+        }
+
+        // Initialize the app on page load
+        document.addEventListener('DOMContentLoaded', initializeWeatherApp);
+    </script>
+</body>
 </html>
