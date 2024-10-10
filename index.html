@@ -187,14 +187,19 @@
                         const exclude = 'minutely,alerts';
                         // Corrected fetch URL
                         fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=${exclude}&appid=${apiKey}&units=metric`)
-                            .then(response => response.json())
-                            .then(data => {
-                                displayWeather(data);
-                            })
-                            .catch(error => {
-                                console.error('Error fetching weather data:', error);
-                                document.getElementById('weather-info').innerHTML = '<p>Unable to fetch weather data.</p>';
-                            });
+							.then(response => {
+								if (!response.ok) {
+									throw new Error(`HTTP error! Status: ${response.status}`);
+								}
+								return response.json();
+							})
+							.then(data => {
+								displayWeather(data);
+							})
+							.catch(error => {
+								console.error('Error fetching weather data:', error);
+								document.getElementById('weather-info').innerHTML = `<p>Unable to fetch weather data. ${error.message}</p>`;
+							});
                     }
 
                     // Function to display weather data
