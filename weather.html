@@ -1,126 +1,126 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Weather Widget</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
     <style>
-        /* Styling for the weather widget */
-        #weather-widget {
-            background: linear-gradient(to bottom, #1c1c1c, #3b3b3b);
-            color: #fff;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .weather-container {
+            background-color: #3a3f47;
             padding: 20px;
-            border-radius: 12px;
-            max-width: 350px;
-            margin: 0 auto;
+            border-radius: 10px;
             text-align: center;
+            width: 350px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
-        #weather-header {
-            font-size: 22px;
-            margin-bottom: 5px;
+
+        .location-input {
+            margin-bottom: 20px;
         }
-        #current-temp {
-            font-size: 56px;
-            font-weight: bold;
+
+        #location-input {
+            width: 200px;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            margin-right: 5px;
+        }
+
+        #get-weather {
+            padding: 8px 12px;
+            border-radius: 5px;
+            border: none;
+            background-color: #ff9800;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        #temperature {
+            font-size: 48px;
             margin: 10px 0;
         }
+
         #feels-like, #high-low {
             font-size: 18px;
+            color: #cccccc;
             margin: 5px 0;
         }
-        #weather-description {
-            margin: 10px 0;
-            font-size: 16px;
-            color: #ccc;
-        }
-        .forecast-section {
-            margin-top: 20px;
-        }
-        .forecast-item {
-            display: inline-block;
-            width: 50px;
-            text-align: center;
-            margin: 5px;
-            color: #ccc;
-        }
-        .forecast-item img {
-            width: 30px;
-            height: 30px;
-        }
-        .day-forecast {
+
+        .hourly-forecast {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            font-size: 16px;
-            color: #ccc;
-            margin-top: 10px;
+            margin-top: 20px;
+            overflow-x: auto;
+            padding-bottom: 10px;
         }
-        .temp-range {
-            display: flex;
-            align-items: center;
-        }
-        .temp-bar {
-            width: 100px;
-            height: 6px;
-            background-color: #555;
-            position: relative;
-            margin: 0 10px;
-            border-radius: 3px;
-        }
-        .temp-bar .indicator {
-            position: absolute;
-            height: 6px;
-            background-color: #ff7300;
-            border-radius: 3px;
-        }
-        #city-input {
-            margin-top: 15px;
-            padding: 10px;
-            width: calc(100% - 22px);
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 16px;
+
+        .hour-block {
             text-align: center;
+            margin: 0 5px;
         }
-        #change-city {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #ff7300;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
+
+        .hour-block span {
+            display: block;
+            font-size: 14px;
+            margin-top: 5px;
         }
-        #change-city:hover {
-            background-color: #e05b00;
+
+        h2 {
+            margin: 0;
+            font-size: 24px;
         }
     </style>
 </head>
 <body>
-    <div id="weather-widget">
-        <div id="weather-header">Loading date...</div>
-        <div id="current-temp">--°</div>
-        <div id="feels-like">Feels Like: --°</div>
-        <div id="high-low">H: --° L: --°</div>
-        <div id="weather-description">Fetching weather data...</div>
-
-        <div class="forecast-section" id="hourly-forecast"></div>
-
-        <div class="forecast-section" id="daily-forecast"></div>
-
-        <input type="text" id="city-input" placeholder="Enter city name">
-        <button id="change-city">Change City</button>
+    <div class="weather-container">
+        <div class="location-input">
+            <input type="text" id="location-input" placeholder="Enter city name" />
+            <button id="get-weather">Get Weather</button>
+        </div>
+        <h2 id="location">North Bellmore</h2>
+        <div id="temperature">56°F</div>
+        <div id="feels-like">Feels Like: 50°F</div>
+        <div id="high-low">H: 69° L: 50°</div>
+        <p id="forecast">Lower temperatures expected tomorrow, with a high of 62°.</p>
+        <div class="hourly-forecast" id="hourly-forecast"></div>
     </div>
 
     <script>
-        const apiKey = '3pgd4ZXAsFPqH8eYGd0rpFa97F0ySGr7'; // Replace with your AccuWeather API key
+        const apiKey = '3pgd4ZXAsFPqH8eYGd0rpFa97F0ySGr7';
+        let locationKey = "329209"; // Default location key for North Bellmore, NY
 
-        // Function to get the location key for a city
-        function getLocationKey(city) {
-            const url = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${city}`;
-            return fetch(url)
+        document.getElementById("get-weather").addEventListener("click", changeLocation);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            fetchWeatherData();
+        });
+
+        function changeLocation() {
+            const cityName = document.getElementById("location-input").value.trim();
+            if (cityName) {
+                console.log(`Changing location to: ${cityName}`);
+                fetchLocationKey(cityName);
+            } else {
+                alert("Please enter a city name.");
+            }
+        }
+
+        function fetchLocationKey(cityName) {
+            const locationUrl = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${cityName}`;
+
+            fetch(locationUrl)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -129,108 +129,89 @@
                 })
                 .then(data => {
                     if (data.length > 0) {
-                        return data[0].Key;
+                        locationKey = data[0].Key;
+                        console.log(`Location key for ${cityName}: ${locationKey}`);
+                        document.getElementById("location").textContent = data[0].LocalizedName;
+                        fetchWeatherData();
                     } else {
-                        throw new Error('Location not found');
+                        alert("Location not found. Please try a different city.");
+                        console.error("Location not found:", cityName);
                     }
+                })
+                .catch(error => {
+                    console.error("Error fetching location key:", error);
+                    alert("An error occurred while fetching the location. Please try again.");
                 });
         }
 
-        // Function to fetch weather data from the API
-        function fetchWeatherData(locationKey) {
-            const currentConditionsUrl = `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${apiKey}&details=true`;
-            const hourlyForecastUrl = `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${locationKey}?apikey=${apiKey}&metric=false`;
-            const dailyForecastUrl = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${apiKey}&metric=false`;
+        function fetchWeatherData() {
+            const url = `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${apiKey}&details=true`;
 
-            Promise.all([
-                fetch(currentConditionsUrl).then(response => response.json()),
-                fetch(hourlyForecastUrl).then(response => response.json()),
-                fetch(dailyForecastUrl).then(response => response.json())
-            ])
-            .then(([currentWeather, hourlyForecast, dailyForecast]) => {
-                updateCurrentWeather(currentWeather[0]);
-                updateHourlyForecast(hourlyForecast);
-                updateDailyForecast(dailyForecast.DailyForecasts);
-            })
-            .catch(error => {
-                console.error('Error fetching weather data:', error);
-            });
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Weather data:", data);
+                    displayWeather(data[0]);
+                    fetchForecast();
+                })
+                .catch(error => {
+                    console.error("Error fetching weather data:", error);
+                    alert("An error occurred while fetching the weather data. Please try again.");
+                });
         }
 
-        // Function to update current weather
-        function updateCurrentWeather(data) {
-            const currentDate = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-            document.getElementById('weather-header').textContent = currentDate; // Display the date instead of the city name
-            document.getElementById('current-temp').textContent = `${data.Temperature.Imperial.Value}°`;
-            document.getElementById('feels-like').textContent = `Feels Like: ${data.RealFeelTemperature.Imperial.Value}°`;
-            document.getElementById('high-low').textContent = `H: ${data.TemperatureSummary.Past24HourRange.Maximum.Imperial.Value}° L: ${data.TemperatureSummary.Past24HourRange.Minimum.Imperial.Value}°`;
-            document.getElementById('weather-description').textContent = data.WeatherText;
+        function displayWeather(data) {
+            const temperatureElement = document.getElementById("temperature");
+            const feelsLikeElement = document.getElementById("feels-like");
+            const highLowElement = document.getElementById("high-low");
+
+            temperatureElement.textContent = `${data.Temperature.Imperial.Value}°F`;
+            feelsLikeElement.textContent = `Feels Like: ${data.RealFeelTemperature.Imperial.Value}°F`;
+            highLowElement.textContent = `H: ${data.TemperatureSummary.Past24HourRange.Maximum.Imperial.Value}° L: ${data.TemperatureSummary.Past24HourRange.Minimum.Imperial.Value}°`;
         }
 
-        // Function to update hourly forecast
-        function updateHourlyForecast(forecast) {
-            const hourlyForecastContainer = document.getElementById('hourly-forecast');
-            hourlyForecastContainer.innerHTML = ''; // Clear previous data
-            forecast.slice(0, 5).forEach(hour => {
-                const time = new Date(hour.DateTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                const iconSrc = `https://developer.accuweather.com/sites/default/files/${hour.WeatherIcon.toString().padStart(2, '0')}-s.png`;
-                const temperature = `${hour.Temperature.Value}°`;
+        function fetchForecast() {
+            const forecastUrl = `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${locationKey}?apikey=${apiKey}&metric=false`;
 
-                hourlyForecastContainer.innerHTML += `
-                    <div class="forecast-item">
-                        <div>${time}</div>
-                        <img src="${iconSrc}" alt="Weather Icon">
-                        <div>${temperature}</div>
-                    </div>
+            fetch(forecastUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Hourly forecast data:", data);
+                    displayHourlyForecast(data);
+                })
+                .catch(error => {
+                    console.error("Error fetching forecast data:", error);
+                    alert("An error occurred while fetching the hourly forecast. Please try again.");
+                });
+        }
+
+        function displayHourlyForecast(data) {
+            const hourlyForecastElement = document.getElementById("hourly-forecast");
+            hourlyForecastElement.innerHTML = "";
+
+            data.forEach(hour => {
+                const hourBlock = document.createElement("div");
+                hourBlock.className = "hour-block";
+                const time = new Date(hour.DateTime);
+                const formattedTime = `${time.getHours() % 12 || 12}${time.getHours() >= 12 ? "PM" : "AM"}`;
+
+                hourBlock.innerHTML = `
+                    <div>${formattedTime}</div>
+                    <span>${hour.Temperature.Value}°F</span>
                 `;
+                hourlyForecastElement.appendChild(hourBlock);
             });
         }
-
-        // Function to update daily forecast
-        function updateDailyForecast(forecast) {
-            const dailyForecastContainer = document.getElementById('daily-forecast');
-            dailyForecastContainer.innerHTML = ''; // Clear previous data
-            forecast.slice(0, 3).forEach(day => {
-                const dayOfWeek = new Date(day.Date).toLocaleDateString([], { weekday: 'short' });
-                const lowTemp = `${day.Temperature.Minimum.Value}°`;
-                const highTemp = `${day.Temperature.Maximum.Value}°`;
-                const tempRangeWidth = ((day.Temperature.Maximum.Value - day.Temperature.Minimum.Value) / 100) * 100; // Adjust as needed
-
-                dailyForecastContainer.innerHTML += `
-                    <div class="day-forecast">
-                        <div>${dayOfWeek}</div>
-                        <div class="temp-range">
-                            <div>${lowTemp}</div>
-                            <div class="temp-bar">
-                                <div class="indicator" style="width: ${tempRangeWidth}%;"></div>
-                            </div>
-                            <div>${highTemp}</div>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        // Function to initialize the weather app and fetch data for the default city (New York)
-        function initializeWeatherApp() {
-            getLocationKey('New York').then(locationKey => {
-                fetchWeatherData(locationKey);
-            });
-
-            // Add event listener for changing city
-            document.getElementById('change-city').addEventListener('click', () => {
-                const city = document.getElementById('city-input').value;
-                if (city) {
-                    getLocationKey(city).then(locationKey => {
-                        fetchWeatherData(locationKey);
-                    }).catch(error => {
-                        console.error('Error fetching location key:', error);
-                        alert('City not found. Please try a different city.');
-                    });
-                }
-            });
-        }
-
-        // Initialize the app on page load
-        initializeWeatherApp();
-    </script
+    </script>
+</body>
+</html>
