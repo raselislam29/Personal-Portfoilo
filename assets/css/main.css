@@ -31,6 +31,9 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+	-webkit-text-size-adjust: 100%;
+	font-size: medium;
+	font-family: 'Times New Roman', Times, serif;
 }
 
 ol, ul {
@@ -4685,6 +4688,19 @@ input, select, textarea {
 			box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2);
 			visibility: visible;
 		}
-		
+		.button {
+			background-color: #ff7e5f;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			text-transform: uppercase;
+			font-size: 1em;
+			transition: background-color 0.3s ease;
+		}
+	
+		.button:hover {
+			background-color: #feb47b;
+		}	
 
 	}
