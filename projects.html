@@ -20,6 +20,7 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            flex-direction: column;
         }
 
         h1 {
@@ -27,6 +28,57 @@
             margin-bottom: 20px;
             color: #333;
             font-size: 2.5em;
+        }
+
+        /* Navigation bar */
+        .navbar {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color:green;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar ul li {
+            color: #fff;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #aaa;
         }
 
         /* Grid container */
@@ -98,8 +150,27 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home Page</a></li>
+            <li><a href="#">Project</a></li>
+            <li><a href="certificates.html">Certificate</a></li>
+        </ul>
+        <div class="social-icons">
+            
+            <a href="https://Facebook.com/raselmunshizzz"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com/__whoare__you"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/raselislam29"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/raselislam29"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
     <div>
         <h1>My Projects</h1>
         <div class="projects-grid">
