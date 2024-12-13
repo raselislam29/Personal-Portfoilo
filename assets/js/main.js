@@ -1,8 +1,16 @@
-/*
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+
+    // Get the current date
+    const today = new Date();
+  
+    // Format the date (e.g., MM/DD/YYYY)
+    const formattedDate = today.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  
+    // Display the date in the HTML element
+    document.getElementById('current-date').textContent = formattedDate;
 
 (function($) {
 
