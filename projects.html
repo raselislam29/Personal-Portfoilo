@@ -3,198 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>Rasel Islam - Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Reset and basic styles */
-        * {
+        /* General Body Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f4f8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            flex-direction: column;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
+            background-color: #f4f7f6; /* Light grey background */
             color: #333;
-            font-size: 2.5em;
+            line-height: 1.6;
         }
 
-        /* Navigation bar */
+        /* Navigation Bar Styles */
         .navbar {
-            width: 100%;
-            max-width: 1200px;
+            background-color: #2c3e50; /* Dark blue/grey */
+            color: white;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color:green;
-            padding: 10px 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            gap: 15px;
-        }
-
-        .navbar ul li {
-            color: #fff;
-        }
-
-        .navbar ul li a {
+        .navbar-links a {
+            color: white;
             text-decoration: none;
-            color: #fff;
-            font-weight: bold;
             padding: 10px 15px;
             transition: background-color 0.3s ease;
-        }
-
-        .navbar ul li a:hover {
-            background-color: #555;
             border-radius: 5px;
         }
 
-        .social-icons {
-            display: flex;
-            gap: 20px;
+        .navbar-links a:hover {
+            background-color: #34495e; /* Slightly lighter dark blue */
         }
 
         .social-icons a {
-            color: #fff;
-            font-size: 1.5em;
+            color: white;
+            margin-left: 15px;
+            font-size: 20px;
             transition: color 0.3s ease;
         }
 
         .social-icons a:hover {
-            color: #aaa;
+            color: #ecf0f1; /* Lighter white */
         }
 
-        /* Grid container */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            width: 100%;
+        /* Projects Section */
+        .projects-container {
             max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 30px;
         }
 
-        /* Image styling */
         .project-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
+            background-color: #ffffff;
+            border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
+        .project-card h3 {
+            background-color: #3498db; /* Blue header */
+            color: white;
+            padding: 15px;
+            margin: 0;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+        .project-card .project-content {
+            padding: 20px;
+            flex-grow: 1; /* Allows content to expand */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pushes button to bottom */
+        }
+
+        .project-card p {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 20px;
+        }
         .project-card img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+            height: 200px; /* Fixed height for image */
+            object-fit: cover; /* Ensures image fills the space without distortion */
+            border-bottom: 1px solid #ddd;
         }
 
-        .project-card:hover img {
-            transform: scale(1.1);
-            opacity: 0.8;
-        }
-
-        /* Overlay for text */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        .project-card .github-link {
+            display: inline-block;
+            background-color: #2ecc71; /* Green button */
+            color: white;
+            padding: 10px 20px;
             text-align: center;
-            font-size: 1.2em;
-            padding: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            align-self: flex-start; /* Aligns button to the left within the card */
+            margin-top: auto; /* Pushes the button to the bottom */
         }
 
-        .project-card:hover .overlay {
-            opacity: 1;
+        .project-card .github-link:hover {
+            background-color: #27ae60; /* Darker green */
         }
 
-        /* Responsiveness */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
-            .overlay {
-                font-size: 1em;
+            .navbar-links {
+                margin-top: 10px;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navbar-links a {
+                padding: 10px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .social-icons {
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .social-icons a {
+                margin: 0 10px;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 </head>
 <body>
-    <!-- Navigation Bar -->
+
     <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Home Page</a></li>
-            <li><a href="#">Project</a></li>
-            <li><a href="certificates.html">Certificate</a></li>
-        </ul>
+        <div class="navbar-links">
+            <a href="index.html">Home</a>
+            <a href="certificates.html">Certificates</a>
+            <a href="projects.html">Projects</a>
+        </div>
         <div class="social-icons">
-            
-            <a href="https://Facebook.com/raselmunshizzz"><i class="fab fa-facebook"></i></a>
-            <a href="https://instagram.com/__whoare__you"><i class="fab fa-instagram"></i></a>
-            <a href="https://github.com/raselislam29"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/raselislam29"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/raselislam29" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/raselislam29" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://Facebook.com/raselmunshizzz" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="mailto:rasel019544@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
     </nav>
 
-    <!-- Projects Section -->
-    <div>
-        <h1>My Projects</h1>
-        <div class="projects-grid">
-            <div class="project-card" onclick="openProject('//github.com/raselislam29/Car-Inventory-Management-Web-Application')">
-                <img src="images/car.jpeg" alt="Car Inventory Application App">
-                <div class="overlay">Car Inventory Application App</div>
+    <div class="projects-container">
+        <div class="project-card">
+            <img src="path/to/project1.jpg" alt="Project 1 Image">
+            <h3>Project One: E-commerce Website</h3>
+            <div class="project-content">
+                <p>The e-commerce prototype solution centers on three main classes (Product, User, and Order) and leverages inheritance, lambdas, and extra features to create a basic but functional e-commerce structure. Here’s an overview and explanation of the methods used:</p>
+                <a href="https://github.com/raselislam29/E-Commerce-Store" target="_blank" class="github-link">View on GitHub <i class="fab fa-github"></i></a>
             </div>
-            <div class="project-card" onclick="openProject('project2-details.html')">
-                <img src="bulb_green.jpg" alt="Project 2">
-                <div class="overlay">Project 2</div>
-            </div>
-            <div class="project-card" onclick="openProject('project3-details.html')">
-                <img src="project3-thumbnail.jpg" alt="Project 3">
-                <div class="overlay">Project 3</div>
-            </div>
-            <!-- Repeat similar structure for more projects -->
         </div>
+
+        <div class="project-card">
+            <img src="path/to/project1.jpg" alt="Project 1 Image">
+            <h3>Project Two: Car Inventory Management Web-Application</h3>
+            <div class="project-content">
+                <p>This project is a PHP and MySQL web application that allows registered users to manage a car inventory. Users can register, log in, list all cars, add new cars, search for cars, and delete cars securely.</p>
+                <a href="https://github.com/raselislam29/Car-Inventory-Management-Web-Application" target="_blank" class="github-link">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="path/to/project1.jpg" alt="Project 1 Image">
+            <h3>Project Three: Cyclitic-Bike-Share-Analysis</h3>
+            <div class="project-content">
+                <p>The primary objective of this case study is to conduct a thorough analysis of Cyclistic's bike-sharing data to uncover insights into how annual members and casual riders utilize Cyclistic bikes differently. </p>
+                <a href="https://github.com/raselislam29/Cyclitic-Bike-Share-Analysis" target="_blank" class="github-link">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="path/to/project1.jpg" alt="Project 1 Image">
+            <h3>Project Four: Personal Portfolio Site</h3>
+            <div class="project-content">
+                <p>This very portfolio website! Built with pure HTML, CSS, and JavaScript to showcase my skills and projects. Designed for responsiveness and modern aesthetics.</p>
+                <a href="https://github.com/raselislam29/Personal-Portfoilo" target="_blank" class="github-link">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="path/to/project1.jpg" alt="Project 1 Image">
+            <h3>Project Five: Covid Vaccine Analysis</h3>
+            <div class="project-content">
+                <p>This project analyzes global COVID-19 (Python (Pandas, Matplotlib, Seaborn)
+                    Jupyter Notebook)vaccination progress using real-world data from Kaggle.
+                    The goal is to uncover trends, compare country-level responses, and visualize the impact of vaccination efforts.p>
+                <a href="https://github.com/raselislam29/covid-vaccine-analysis" target="_blank" class="github-link">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        
     </div>
 
-    <script>
-        // JavaScript function to open project details in a new tab
-        function openProject(url) {
-            window.open(url, '_blank');
-        }
-    </script>
 </body>
 </html>

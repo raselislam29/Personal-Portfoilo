@@ -3,195 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificates</title>
-    <style>
-        /* Reset and basic styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
-    font-size: 16px; /* Corrected from 16x to 16px */
-    margin: 0;
-    padding: 0;
-    background-color: #f0f4f8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 10px; /* Reduced padding for mobile */
-    flex-direction: column;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-    font-size: 2em; /* Adjusted for better mobile view */
-}
-
-/* Navigation bar */
-.navbar {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    flex-direction: column; /* Stack items on mobile */
-    background-color: green;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 20px; /* Reduced margin for mobile */
-}
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column; /* Stack items on mobile */
-    gap: 10px; /* Reduced gap for mobile */
-}
-
-.navbar ul li {
-    color: #fff;
-}
-
-.navbar ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    padding: 10px;
-    transition: background-color 0.3s ease;
-    text-align: center; /* Center text for mobile */
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center; /* Center social icons */
-    gap: 15px;
-}
-
-/* Grid container */
-.certificates-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjusted min width */
-    gap: 10px; /* Reduced gap for mobile */
-    width: 100%;
-    max-width: 1200px;
-}
-
-/* Image styling */
-.certificate-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.certificate-card:hover {
-    transform: scale(1.05);
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    text-align: center;
-    font-size: 1em; /* Adjusted for better mobile view */
-    padding: 5px; /* Reduced padding for mobile */
-}
-.certificate-card img {
-    width: 100%;
-    height: auto;
-    max-width: 400px;
-}
-
-.certificate-card:hover .overlay {
-    opacity: 1;
-}
-
-/* Responsiveness */
-@media (min-width: 768px) {
-    h1 {
-        font-size: 2.5em; /* Larger font for larger screens */
-    }
-
-    .navbar {
-        flex-direction: row; /* Horizontal layout for larger screens */
-        justify-content: space-between; /* Space between items */
-    }
-
-    .navbar ul {
-        flex-direction: row; /* Horizontal layout for larger screens */
-    }
-
-    .certificates-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted for larger screens */
-    }
-}
-
-
-
-    
-    </style>
+    <title>Rasel Islam - Certificates</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa; /* Light pastel blue */
+            color: #333;
+            line-height: 1.6;
+        }
 
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: #008080; /* Deep teal */
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar-links a:hover {
+            background-color: #00a39d; /* Slightly lighter teal */
+        }
+
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #4db6ac; /* Lighter shade of teal */
+        }
+
+        /* Certificates Section */
+        .certificates-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 30px;
+        }
+
+        .certificate-card {
+            background-color: #fffacd; /* Light yellow/beige */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .certificate-card h3 {
+            background-color: #ff6f61; /* Orange-red header */
+            color: white;
+            padding: 15px;
+            margin: 0;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+        .certificate-card .certificate-content {
+            padding: 20px;
+            flex-grow: 1; /* Allows content to expand */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pushes link to bottom */
+        }
+
+        .certificate-card p {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .certificate-card img {
+            width: 100%;
+            height: 200px; /* Fixed height for image */
+            object-fit: cover; /* Ensures image fills the space without distortion */
+            border-bottom: 1px solid #ddd;
+        }
+
+        .certificate-card .certificate-link {
+            display: inline-block;
+            background-color: #f0f8ff; /* Light blue for link background */
+            color: #333;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            align-self: flex-start; /* Aligns link to the left */
+            margin-top: auto; /* Pushes the link to the bottom */
+        }
+
+        .certificate-card .certificate-link:hover {
+            background-color: #8fbc8f; /* Muted green on hover */
+            color: white;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar-links {
+                margin-top: 10px;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navbar-links a {
+                padding: 10px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .social-icons {
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .social-icons a {
+                margin: 0 10px;
+            }
+
+            .certificates-container {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+
     <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Home Page</a></li>
-            <li><a href="#">Certificate</a></li>
-            <li><a href="projects.html">Projects</a></li>
-        </ul>
+        <div class="navbar-links">
+            <a href="index.html">Home</a>
+            <a href="certificates.html">Certificates</a>
+            <a href="projects.html">Projects</a>
+        </div>
         <div class="social-icons">
-            
-            <a href="https://Facebook.com/raselmunshizzz"><i class="fab fa-facebook"></i></a>
-            <a href="https://instagram.com/__whoare__you"><i class="fab fa-instagram"></i></a>
-            <a href="https://github.com/raselislam29"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/raselislam29"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/raselislam29" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/raselislam29" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://Facebook.com/raselmunshizzz" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="mailto:rasel019544@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
     </nav>
 
-    <!-- Certificates Section -->
-    <div>
-        <h1>My Certificates</h1>
-        <div class="certificates-grid">
-            <div class="certificate-card" onclick="openCertificate('certificate1-details.html')">
-                <img src="images/data.png" alt="Google Data Analytics">
-                <div class="overlay">Certificate 1</div>
+    <div class="certificates-container">
+        <div class="certificate-card">
+            <img src="images/data.png" alt="Certificate 1 Image"> 
+            <h3>Google Data Analytics Certificate</h3>
+            <div class="certificate-content">
+                <p>Certified in Google Data Analytics, with hands-on experience in data cleaning, visualization, and statistical analysis using tools like SQL, R, Excel, and Tableau. Skilled in transforming complex data into actionable insights to support business decision-making. Completed real-world projects and built a portfolio demonstrating practical, data-driven solutions.
+
+
+                </p>
+                <a href="https://drive.google.com/file/d/19JYS2J9RpGFIkHOnL3feEJKHMTdkl0x6/view?usp=sharing" target="_blank" class="certificate-link">View Certificate</a>
             </div>
-            <div class="certificate-card" onclick="openCertificate('certificate2-details.html')">
-                <img src="images/cybersecurity.jpeg" alt="Google cybersecurity">
-                <div class="overlay">Certificate 2</div>
+        </div>
+
+        <div class="certificate-card">
+            <img src="images/cybersecurity.jpeg" alt="Certificate 2 Image"> 
+            <h3>Google CyberSecurity Certicate</h3>
+            <div class="certificate-content">
+                <p>Certified in Google Cybersecurity, trained in identifying and mitigating security risks, threats, and vulnerabilities. Gained hands-on experience with tools like Python, Linux, SQL, SIEM, and IDS. Familiar with the NIST Cybersecurity Framework and the role of AI in enhancing cybersecurity operations. Prepared for entry-level roles through a comprehensive, real-world-focused curriculum.</p>
+                <a href="https://drive.google.com/file/d/1obKlr-Zkltk73p6uE1m0Cfrl4Gz5Esps/view?usp=sharing" target="_blank" class="certificate-link">View Certificate</a>
             </div>
-            <div class="certificate-card" onclick="openCertificate('certificate3-details.html')">
-                <img src="certificate3-thumbnail.jpg" alt="Certificate 3">
-                <div class="overlay">Certificate 3</div>
+        </div>
+
+        <div class="certificate-card">
+            <h3>Another Great Achievement</h3>
+            <div class="certificate-content">
+                <p>Highlighting the key takeaways and recognition received.</p>
+                <a href="path/to/certificate3.pdf" target="_blank" class="certificate-link">View Certificate</a>
             </div>
-            <!-- Repeat similar structure for more certificates -->
+        </div>
+
+        <div class="certificate-card">
+            <h3>Professional Development Certificate</h3>
+            <div class="certificate-content">
+                <p>Description of the professional development program completed.</p>
+                <a href="path/to/certificate4.pdf" target="_blank" class="certificate-link">View Certificate</a>
+            </div>
+        </div>
+
+        <div class="certificate-card">
+            <h3>Technical Skills Certification</h3>
+            <div class="certificate-content">
+                <p>Details about the technical skills validated by this certification.</p>
+                <a href="path/to/certificate5.pdf" target="_blank" class="certificate-link">View Certificate</a>
+            </div>
         </div>
     </div>
 
-    <script>
-        // JavaScript function to open certificate details in a new tab
-        function openCertificate(url) {
-            window.open(url, '_blank');
-        }
-    </script>
 </body>
 </html>
